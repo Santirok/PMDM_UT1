@@ -1,24 +1,26 @@
 ﻿using System;
+//Declaración del espacio de nombres
 namespace CoordenadasGeograficas
 {
+    //Declaración de la clase lugar
     public class Lugar
     {
         //Declaración de los campos de la clase
-        public String nombre;
-        public String direccion;
-        public GeoPunto posicion;
-        public String foto;
-        public String telefono;
-        public String url;
-        public String comentario;
-        public int valoracion;
+        private String nombre;
+        private String direccion;
+        private GeoPunto posicion;
+        private String foto;
+        private String telefono;
+        private String url;
+        private String comentario;
+        private int valoracion;
 
         //Constructor para la clase con parámetros
-        public Lugar(string nombre, string direccion, GeoPunto posicion, string foto, string telefono, string url, string comentario, int valoracion)
+        public Lugar(string nombre, string direccion, float longitud, float latitud, string foto, string telefono, string url, string comentario, int valoracion)
         {
             this.nombre = nombre;
             this.direccion = direccion;
-            this.posicion = posicion;
+            posicion = new GeoPunto(longitud, latitud);
             this.foto = foto;
             this.telefono = telefono;
             this.url = url;

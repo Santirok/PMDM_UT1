@@ -61,14 +61,14 @@ namespace CoordenadasGeograficas
             return ("Longitud = " + longitud + "Latitud = " + latitud);
         }
 
-        public static float Haversine(GeoPunto punto1, GeoPunto punto2) {
-            var r = 6371000;
-            var incremento_latitud = punto2.latitud - punto1.latitud;
-            var incremento_longitud = punto2.longitud - punto2.longitud;
-            var a = Math.Pow(Math.Sin(incremento_latitud / 2), 2) + Math.Cos(punto1.latitud) + Math.Cos(punto2.latitud) +
+        public float Haversine(GeoPunto punto1) {
+            double r = 6371000; // en metros
+            double incremento_latitud = (Math.PI /180) * (latitud - punto1.latitud);
+            double incremento_longitud = (Math.PI /180) * (longitud - punto1.longitud);
+            double a = Math.Pow(Math.Sin(incremento_latitud / 2), 2) + Math.Cos(punto1.latitud) + Math.Cos(latitud) +
                 (Math.Pow(Math.Sin((incremento_longitud/ 2)), 2));
-            var c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-            var distancia = r * c;
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            double distancia = r * c;
             return (float)distancia;
         }
 
